@@ -85,7 +85,8 @@ drivers_grouped = drivers.groupby(['Car','Driver'])['PTS'].sum().reset_index()
 drivers_grouped = drivers_grouped[drivers_grouped['PTS'] > 100]
 idx = drivers_grouped.groupby('Car')['PTS'].idxmax()
 top_drivers = drivers_grouped.loc[idx].reset_index(drop=True)
-top_drivers
+top_drivers_sorted = top_drivers.sort_values(by = 'PTS', ascending = False)
+top_drivers_sorted
 ```
 
 ## Question 4: What are the all time point scorers for a single team?

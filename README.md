@@ -44,7 +44,6 @@ winners.head()
 ```
 
 
-
 |  | Grand Prix | Date | Winner | Car | Laps | Time | Name Code |
 |----|----|----|----|----|----|----|----|
 | 0 | Great Britain | 1950-05-13 | Nino Farina | Alfa Romeo | 70.0 | 2:13:23.600 | FAR |
@@ -174,53 +173,53 @@ drivers_grouped = drivers.groupby(['Car','Driver'])['PTS'].sum().reset_index()
 drivers_grouped = drivers_grouped[drivers_grouped['PTS'] > 100]
 idx = drivers_grouped.groupby('Car')['PTS'].idxmax()
 top_drivers = drivers_grouped.loc[idx].reset_index(drop=True)
-top_drivers
+top_drivers_sorted = top_drivers.sort_values(by = 'PTS', ascending = False)
+top_drivers_sorted
 ```
-
 
 |     | Car                          | Driver             | PTS    |
 |-----|------------------------------|--------------------|--------|
-| 0   | AlphaTauri Honda             | Pierre Gasly       | 185.0  |
-| 1   | Alpine Renault               | Esteban Ocon       | 225.0  |
-| 2   | Aston Martin Aramco Mercedes | Fernando Alonso    | 239.0  |
-| 3   | BAR Honda                    | Jenson Button      | 139.0  |
-| 4   | BRM                          | Graham Hill        | 171.0  |
-| 5   | Benetton Ford                | Michael Schumacher | 201.0  |
-| 6   | Benetton Renault             | Michael Schumacher | 102.0  |
-| 7   | Brabham BMW                  | Nelson Piquet      | 129.0  |
-| 8   | Brabham Ford                 | Nelson Piquet      | 107.0  |
-| 9   | Cooper Climax                | Bruce McLaren      | 128.5  |
-| 10  | Ferrari                      | Sebastian Vettel   | 1400.0 |
-| 11  | Force India Mercedes         | Sergio Perez       | 400.0  |
-| 12  | Haas Ferrari                 | Kevin Magnussen    | 125.0  |
-| 13  | Ligier Matra                 | Jacques Laffite    | 106.0  |
-| 14  | Lotus Climax                 | Jim Clark          | 189.0  |
-| 15  | Lotus Ford                   | Mario Andretti     | 148.0  |
-| 16  | Lotus Renault                | Kimi RÃ¤ikkÃ¶nen   | 390.0  |
-| 17  | McLaren Ford                 | Denny Hulme        | 174.0  |
-| 18  | McLaren Honda                | Ayrton Senna       | 374.0  |
-| 19  | McLaren Mercedes             | Lewis Hamilton     | 913.0  |
-| 20  | McLaren Renault              | Carlos Sainz       | 201.0  |
-| 21  | McLaren TAG                  | Alain Prost        | 262.5  |
 | 22  | Mercedes                     | Lewis Hamilton     | 3768.5 |
-| 23  | RBR Renault                  | Sebastian Vettel   | 340.0  |
-| 24  | Racing Point BWT Mercedes    | Sergio Perez       | 177.0  |
+| 10  | Ferrari                      | Sebastian Vettel   | 1400.0 |
+| 28  | Red Bull Racing Renault      | Sebastian Vettel   | 1237.0 |
+| 19  | McLaren Mercedes             | Lewis Hamilton     | 913.0  |
 | 25  | Red Bull Racing Honda        | Max Verstappen     | 887.5  |
 | 26  | Red Bull Racing Honda RBPT   | Max Verstappen     | 744.0  |
-| 27  | Red Bull Racing RBPT         | Max Verstappen     | 454.0  |
-| 28  | Red Bull Racing Renault      | Sebastian Vettel   | 1237.0 |
 | 29  | Red Bull Racing TAG Heuer    | Daniel Ricciardo   | 626.0  |
 | 30  | Renault                      | Fernando Alonso    | 468.0  |
-| 31  | Sauber BMW                   | Nick Heidfeld      | 163.0  |
-| 32  | Sauber Ferrari               | Kamui Kobayashi    | 122.0  |
-| 33  | Scuderia Toro Rosso Honda    | Pierre Gasly       | 124.0  |
-| 34  | Toyota                       | Jarno Trulli       | 175.5  |
-| 35  | Tyrrell Ford                 | Jackie Stewart     | 203.0  |
-| 36  | Williams BMW                 | Juan Pablo Montoya | 221.0  |
-| 37  | Williams Ford                | Alan Jones         | 164.0  |
-| 38  | Williams Honda               | Nigel Mansell      | 162.0  |
+| 27  | Red Bull Racing RBPT         | Max Verstappen     | 454.0  |
 | 39  | Williams Mercedes            | Valtteri Bottas    | 407.0  |
+| 11  | Force India Mercedes         | Sergio Perez       | 400.0  |
+| 16  | Lotus Renault                | Kimi RÃ¤ikkÃ¶nen   | 390.0  |
+| 18  | McLaren Honda                | Ayrton Senna       | 374.0  |
+| 23  | RBR Renault                  | Sebastian Vettel   | 340.0  |
 | 40  | Williams Renault             | Damon Hill         | 326.0  |
+| 21  | McLaren TAG                  | Alain Prost        | 262.5  |
+| 2   | Aston Martin Aramco Mercedes | Fernando Alonso    | 239.0  |
+| 1   | Alpine Renault               | Esteban Ocon       | 225.0  |
+| 36  | Williams BMW                 | Juan Pablo Montoya | 221.0  |
+| 35  | Tyrrell Ford                 | Jackie Stewart     | 203.0  |
+| 20  | McLaren Renault              | Carlos Sainz       | 201.0  |
+| 5   | Benetton Ford                | Michael Schumacher | 201.0  |
+| 14  | Lotus Climax                 | Jim Clark          | 189.0  |
+| 0   | AlphaTauri Honda             | Pierre Gasly       | 185.0  |
+| 24  | Racing Point BWT Mercedes    | Sergio Perez       | 177.0  |
+| 34  | Toyota                       | Jarno Trulli       | 175.5  |
+| 17  | McLaren Ford                 | Denny Hulme        | 174.0  |
+| 4   | BRM                          | Graham Hill        | 171.0  |
+| 37  | Williams Ford                | Alan Jones         | 164.0  |
+| 31  | Sauber BMW                   | Nick Heidfeld      | 163.0  |
+| 38  | Williams Honda               | Nigel Mansell      | 162.0  |
+| 15  | Lotus Ford                   | Mario Andretti     | 148.0  |
+| 3   | BAR Honda                    | Jenson Button      | 139.0  |
+| 7   | Brabham BMW                  | Nelson Piquet      | 129.0  |
+| 9   | Cooper Climax                | Bruce McLaren      | 128.5  |
+| 12  | Haas Ferrari                 | Kevin Magnussen    | 125.0  |
+| 33  | Scuderia Toro Rosso Honda    | Pierre Gasly       | 124.0  |
+| 32  | Sauber Ferrari               | Kamui Kobayashi    | 122.0  |
+| 8   | Brabham Ford                 | Nelson Piquet      | 107.0  |
+| 13  | Ligier Matra                 | Jacques Laffite    | 106.0  |
+| 6   | Benetton Renault             | Michael Schumacher | 102.0  |
 
 
 ## Question 4: What are the all time point scorers for a single team?
