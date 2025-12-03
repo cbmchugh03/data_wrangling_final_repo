@@ -100,7 +100,7 @@ sns.barplot(top_drivers_unique, x = 'Driver',y = 'PTS', hue = 'Car')
 plt.xlabel('Driver')
 plt.ylabel('Total Points')
 plt.title('Most Total Points for one Team')
-plt.xticks(rotation = 30, fontsize = 8)
+plt.xticks(rotation = 30, fontsize = 10)
 plt.show()
 ```
 
@@ -119,7 +119,7 @@ fastest_laps_plot['x'] = range(len(fastest_laps_plot))
 
 ```{python}
 sns.barplot(data=fastest_laps_plot,x='x',y='Dummy',hue='year',dodge=False)
-plt.xticks(ticks=fastest_laps_plot['x'],labels=fastest_laps_plot['Driver'],rotation=30,ha='right', fontsize = 8)
+plt.xticks(ticks=fastest_laps_plot['x'],labels=fastest_laps_plot['Driver'],rotation=30,ha='right', fontsize = 10)
 plt.xlabel('Driver')
 plt.ylabel('Total Fastest Laps in a Season')
 plt.title('Drivers with Most Fastest Laps in a Season')
