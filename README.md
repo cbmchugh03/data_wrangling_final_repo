@@ -3,11 +3,23 @@
 
 ## Purpose
 
-The data that I chose for this project is F1 data about drivers,
-winners, teams, and fastest laps for each season of the F1 season. This
-data starts in 1950 and goes to about half way through the 2024 season.
-The main reason why I undertook this project is that I was interesting
-in exploring
+The data I chose for this project is the F1 data on drivers, winners,
+teams, and fastest laps for each season. This data starts in 1950 and
+goes to about halfway through the 2024 season. The main reason I
+undertook this project is that I was interested in exploring how F1 has
+changed over the years, given that the cars and the racetracks
+themselves can differ from year to year. I also chose F1 in particular
+because, given the sport’s high popularity, I could easily validate my
+findings by manually researching them. For example, if I found that a
+particular driver won x races, I can easily verify that by Googling it.
+This exploration is important because it can reveal various trends that
+may not be readily apparent through a Google search. For example, the
+evolution of the fastest lap at a particular track. While this can be
+Googled, it’s much more impactful to explore it here and have a visual
+for it.
+
+Data for this project is linked
+here(https://www.kaggle.com/datasets/lakshayjain611/f1-races-results-dataset-1950-to-2024?select=winners.csv)
 
 ``` python
 import pandas as pd
@@ -31,7 +43,18 @@ teams.head()
 winners.head()
 ```
 
-
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+&#10;    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+&#10;    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 
 |  | Grand Prix | Date | Winner | Car | Laps | Time | Name Code |
 |----|----|----|----|----|----|----|----|
@@ -41,6 +64,7 @@ winners.head()
 | 3 | Switzerland | 1950-06-04 | Nino Farina | Alfa Romeo | 42.0 | 2:02:53.700 | FAR |
 | 4 | Belgium | 1950-06-18 | Juan Manuel Fangio | Alfa Romeo | 35.0 | 2:47:26.000 | FAN |
 
+</div>
 
 ## Question 1: How was the total number of F1 Races changed over time?
 
@@ -102,63 +126,20 @@ added things such as chicanes to more circuits, which led to decreased
 track speed, which in turn led to increased track times.
 
 ``` python
-fastest_laps['Grand Prix'].value_counts()
+fastest_laps['Grand Prix'].value_counts().head(10)
 ```
 
     Grand Prix
-    Great Britain       74
-    Italy               74
-    Monaco              70
-    Belgium             67
-    Germany             64
-    France              62
-    Spain               53
-    Canada              52
-    Brazil              50
-    United States       39
-    Hungary             38
-    Australia           38
-    Japan               38
-    Austria             36
-    Netherlands         33
-    San Marino          26
-    Europe              23
-    Mexico              23
-    South Africa        23
-    Bahrain             20
-    Argentina           20
-    Malaysia            19
-    Portugal            18
-    China               17
-    Abu Dhabi           15
-    Singapore           14
-    Indianapolis 500    11
-    Turkey               9
-    USA West             8
-    Russia               8
-    Detroit              7
-    Sweden               6
-    Switzerland          6
-    Azerbaijan           6
-    USA East             5
-    South Korea          4
-    Emilia Romagna       4
-    Saudi Arabia         4
-    India                3
-    Miami                3
-    Styria               2
-    Qatar                2
-    Pacific              2
-    Caesar's Palace      2
-    Luxembourg           2
-    Morocco              1
-    Pescara              1
-    Dallas               1
-    70th Anniversary     1
-    Sakhir               1
-    Eifel                1
-    Tuscany              1
-    Las Vegas            1
+    Great Britain    74
+    Italy            74
+    Monaco           70
+    Belgium          67
+    Germany          64
+    France           62
+    Spain            53
+    Canada           52
+    Brazil           50
+    United States    39
     Name: count, dtype: int64
 
 ``` python
@@ -208,7 +189,18 @@ top_drivers = drivers_grouped.loc[idx].reset_index(drop=True)
 top_drivers
 ```
 
-
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+&#10;    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+&#10;    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 
 |     | Car                          | Driver             | PTS    |
 |-----|------------------------------|--------------------|--------|
@@ -254,6 +246,7 @@ top_drivers
 | 39  | Williams Mercedes            | Valtteri Bottas    | 407.0  |
 | 40  | Williams Renault             | Damon Hill         | 326.0  |
 
+</div>
 
 ## Question 4: What are the all time point scorers for a single team?
 
@@ -279,7 +272,7 @@ sns.barplot(top_drivers_unique, x = 'Driver',y = 'PTS', hue = 'Car')
 plt.xlabel('Driver')
 plt.ylabel('Total Points')
 plt.title('Most Total Points for one Team')
-plt.xticks(rotation = 30, fontsize = 5)
+plt.xticks(rotation = 30, fontsize = 8)
 plt.show()
 ```
 
@@ -317,7 +310,7 @@ fastest_laps_plot['x'] = range(len(fastest_laps_plot))
 
 ``` python
 sns.barplot(data=fastest_laps_plot,x='x',y='Dummy',hue='year',dodge=False)
-plt.xticks(ticks=fastest_laps_plot['x'],labels=fastest_laps_plot['Driver'],rotation=30,ha='right', fontsize = 5)
+plt.xticks(ticks=fastest_laps_plot['x'],labels=fastest_laps_plot['Driver'],rotation=30,ha='right', fontsize = 8)
 plt.xlabel('Driver')
 plt.ylabel('Total Fastest Laps in a Season')
 plt.title('Drivers with Most Fastest Laps in a Season')
