@@ -31,18 +31,7 @@ teams.head()
 winners.head()
 ```
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-&#10;    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-&#10;    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+
 
 |  | Grand Prix | Date | Winner | Car | Laps | Time | Name Code |
 |----|----|----|----|----|----|----|----|
@@ -52,7 +41,6 @@ winners.head()
 | 3 | Switzerland | 1950-06-04 | Nino Farina | Alfa Romeo | 42.0 | 2:02:53.700 | FAR |
 | 4 | Belgium | 1950-06-18 | Juan Manuel Fangio | Alfa Romeo | 35.0 | 2:47:26.000 | FAN |
 
-</div>
 
 ## Question 1: How was the total number of F1 Races changed over time?
 
@@ -220,18 +208,7 @@ top_drivers = drivers_grouped.loc[idx].reset_index(drop=True)
 top_drivers
 ```
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-&#10;    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-&#10;    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+
 
 |     | Car                          | Driver             | PTS    |
 |-----|------------------------------|--------------------|--------|
@@ -277,7 +254,6 @@ top_drivers
 | 39  | Williams Mercedes            | Valtteri Bottas    | 407.0  |
 | 40  | Williams Renault             | Damon Hill         | 326.0  |
 
-</div>
 
 ## Question 4: What are the all time point scorers for a single team?
 
